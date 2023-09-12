@@ -10,12 +10,30 @@ function EightBall(props) {
     setMessage(randomAnswer.msg);
   };
 
+  const handleReset = () => {
+    setColor("black");
+    setMessage("Think of a Question");
+  };
+
   return (
-    <div 
-      style={{ backgroundColor: color, width: '200px', height: '200px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-      onClick={handleClick}
-    >
-      <p>{message}</p>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <div 
+        style={{ 
+          backgroundColor: color, 
+          width: '200px', 
+          height: '200px', 
+          borderRadius: '50%', 
+          margin: '0 auto', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          cursor: 'pointer' 
+        }}
+        onClick={handleClick}
+      >
+        <p style={{ color: color === 'black' ? 'white' : 'black' }}>{message}</p>
+      </div>
+      <button style={{ marginTop: '20px' }} onClick={handleReset}>Reset</button>
     </div>
   );
 }
